@@ -1,0 +1,413 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+:root {
+  --grey: hsl(217, 16%, 45%);
+  --dark-grey: hsl(229, 25%, 31%);
+  --blue: hsl(229, 64%, 46%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+button,
+button:focus {
+  outline: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+button:active {
+  outline: none;
+  background: transparent;
+}
+
+img {
+  pointer-events: none;
+}
+
+span {
+  display: block;
+}
+
+html {
+  user-select: none;
+}
+
+body {
+  background-image: radial-gradient(circle, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  background-repeat: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 30px;
+  gap: 95px;
+}
+
+.score-board {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 3px solid var(--grey);
+  border-radius: 10px;
+}
+
+.logo img {
+  width: 55px;
+  margin: 20px;
+}
+
+.score {
+  background-color: white;
+  border-radius: 5px;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 700;
+  margin: 10px;
+  padding: 10px 20px;
+}
+
+.score span {
+  margin-top: -7px;
+  font-size: 46px;
+  font-weight: 700;
+  color: var(--dark-grey);
+}
+
+.play-area {
+  margin: auto;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.options {
+  background-image: url('../images/bg-pentagon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.row:nth-child(1) {
+  transform: translateY(-18px);
+}
+
+.row:nth-child(2) {
+  transform: translateY(-18px);
+  gap: 120px;
+}
+
+.row:nth-child(3) {
+  transform: translateY(20px);
+  gap: 40px;
+}
+
+.option {
+  background: rgb(245, 245, 245);
+  border-radius: 100%;
+  display: grid;
+  place-items: center;
+  height: 75px;
+  width: 75px;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.option:hover {
+  background: rgb(255, 255, 255);
+}
+
+.option img {
+  width: 33px;
+}
+
+#scissors img {
+  width: 36px;
+}
+
+#lizard img {
+  width: 38px;
+}
+
+#scissors {
+  border: 10px solid hsl(39, 89%, 49%);
+  box-shadow: 0 4px 0 0px hsl(40, 84%, 35%);
+}
+
+#spock {
+  border: 10px solid hsl(189, 59%, 53%);
+  box-shadow: 0 4px 0 0px hsl(189, 58%, 39%);
+}
+
+#paper {
+  border: 10px solid hsl(230, 89%, 62%);
+  box-shadow: 0 4px 0 0px hsl(230, 89%, 50%);
+}
+
+#lizard {
+  border: 10px solid hsl(261, 73%, 60%);
+  box-shadow: 0 4px 0 0px hsl(261, 72%, 48%);
+}
+
+#rock {
+  border: 10px solid hsl(349, 71%, 52%);
+  box-shadow: 0 4px 0 0px hsl(349, 70%, 33%);
+}
+
+#scissors:hover,
+#spock:hover,
+#paper:hover,
+#lizard:hover,
+#rock:hover {
+  box-shadow: none;
+  transform: translateY(2px);
+}
+
+.rules-btn,
+.play-again-btn {
+  margin: auto;
+  color: white;
+  font-size: 14px;
+  border: 2px solid var(--grey);
+  border-radius: 10px;
+  padding: 10px 40px;
+  transition: all .2s;
+}
+
+.rules-btn:hover,
+.play-again-btn:hover {
+  background-color: white;
+  border: 2px solid white;
+  color: var(--blue);
+}
+
+.rules-btn:focus,
+.play-again-btn:focus {
+  border: 2px solid var(--grey);
+}
+
+.rules {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  gap: 125px;
+  color: var(--dark-grey);
+  transition: opacity .2s;
+}
+
+.rules img[alt="Rules"] {
+  width: 310px;
+}
+
+.versus {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+.arena {
+  display: flex;
+  gap: 25px;
+}
+
+.arena .option {
+  scale: 1.3;
+}
+
+.arena .text {
+  font-size: 14px;
+}
+
+.player,
+.house {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  height: 160px;
+  gap: 45px;
+}
+
+.blank {
+  border: 10px solid transparent;
+  background-color: #192845;
+}
+
+.result span {
+  font-size: 50px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .5s;
+}
+
+.play-again-btn {
+  padding: 15px 60px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .2s, opacity .5s;
+}
+
+.versus {
+  display: none;
+}
+
+.desktop-result {
+  display: none;
+}
+
+.mobile-result {
+  display: block;
+}
+
+@media screen and (min-width: 769px) {
+  .container {
+    height: calc(100vh - 60px);
+    gap: 20px;
+  }
+
+  .rules-btn {
+    align-self: flex-end;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 20px;
+  }
+
+  .options {
+    background-size: 300px;
+  }
+
+  .row:nth-child(2) {
+    transform: translateY(-24px);
+    gap: 150px;
+  }
+
+  .row:nth-child(3) {
+    gap: 50px;
+  }
+
+  .option {
+    width: 105px;
+    height: 105px;
+  }
+
+  .option img {
+    width: 43px;
+  }
+
+  #scissors img {
+    width: 50px;
+  }
+
+  #lizard img {
+    width: 52px;
+  }
+
+  #rock img {
+    width: 47px;
+  }
+
+  #scissors {
+    border: 15px solid hsl(39, 89%, 49%);
+    box-shadow: 0 6px 0 0px hsl(40, 84%, 35%);
+  }
+
+  #spock {
+    border: 15px solid hsl(189, 59%, 53%);
+    box-shadow: 0 6px 0 0px hsl(189, 58%, 39%);
+  }
+
+  #paper {
+    border: 15px solid hsl(230, 89%, 62%);
+    box-shadow: 0 6px 0 0px hsl(230, 89%, 50%);
+  }
+
+  #lizard {
+    border: 15px solid hsl(261, 73%, 60%);
+    box-shadow: 0 6px 0 0px hsl(261, 72%, 48%);
+  }
+
+  #rock {
+    border: 15px solid hsl(349, 71%, 52%);
+    box-shadow: 0 6px 0 0px hsl(349, 70%, 33%);
+  }
+
+  #scissors:hover,
+  #spock:hover,
+  #paper:hover,
+  #lizard:hover,
+  #rock:hover {
+    transform: translateY(6px);
+  }
+
+  .play-area {
+    height: fit-content;
+  }
+
+  .arena {
+    gap: 60px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .player,
+  .house {
+    width: auto;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .score-board {
+    align-self: center;
+    gap: 30vw;
+  }
+
+  .logo img {
+    width: 80px;
+  }
+
+  .score {
+    font-size: 20px;
+    padding: 10px 35px;
+  }
+
+  .score span {
+    font-size: 54px;
+  }
+}
